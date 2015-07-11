@@ -266,12 +266,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cookyii/base.git",
-                "reference": "e9ffa6b83b89878d41919b5d91f65dac7cc03bf8"
+                "reference": "e41bcce4dc8dad05d8a98d02346e497403d43ccc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cookyii/base/zipball/e9ffa6b83b89878d41919b5d91f65dac7cc03bf8",
-                "reference": "e9ffa6b83b89878d41919b5d91f65dac7cc03bf8",
+                "url": "https://api.github.com/repos/cookyii/base/zipball/e41bcce4dc8dad05d8a98d02346e497403d43ccc",
+                "reference": "e41bcce4dc8dad05d8a98d02346e497403d43ccc",
                 "shasum": ""
             },
             "require": {
@@ -304,7 +304,7 @@
                 "cookyii",
                 "yii2"
             ],
-            "time": "2015-06-26 12:09:14"
+            "time": "2015-07-11 14:19:21"
         },
         {
             "name": "cookyii/module-media",
@@ -312,12 +312,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cookyii/module-media.git",
-                "reference": "ba9e0a3b60542f066470377a1d1f2897d5a1d9d4"
+                "reference": "c38b9657ebee22e0f5c3fac59099df7104721841"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cookyii/module-media/zipball/ba9e0a3b60542f066470377a1d1f2897d5a1d9d4",
-                "reference": "ba9e0a3b60542f066470377a1d1f2897d5a1d9d4",
+                "url": "https://api.github.com/repos/cookyii/module-media/zipball/c38b9657ebee22e0f5c3fac59099df7104721841",
+                "reference": "c38b9657ebee22e0f5c3fac59099df7104721841",
                 "shasum": ""
             },
             "require": {
@@ -356,7 +356,7 @@
                 "video",
                 "yii2"
             ],
-            "time": "2015-06-23 11:53:35"
+            "time": "2015-06-28 14:13:11"
         },
         {
             "name": "ezyang/htmlpurifier",
@@ -404,16 +404,16 @@
         },
         {
             "name": "rmrevin/yii2-fontawesome",
-            "version": "2.10.3",
+            "version": "2.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rmrevin/yii2-fontawesome.git",
-                "reference": "ce4dd62a048090f3d98822d4bc9401bfcdde1f98"
+                "reference": "8786dbfe1edfc0b25aed9e25461ec4e4e37a1d15"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rmrevin/yii2-fontawesome/zipball/ce4dd62a048090f3d98822d4bc9401bfcdde1f98",
-                "reference": "ce4dd62a048090f3d98822d4bc9401bfcdde1f98",
+                "url": "https://api.github.com/repos/rmrevin/yii2-fontawesome/zipball/8786dbfe1edfc0b25aed9e25461ec4e4e37a1d15",
+                "reference": "8786dbfe1edfc0b25aed9e25461ec4e4e37a1d15",
                 "shasum": ""
             },
             "require": {
@@ -452,20 +452,20 @@
                 "font",
                 "yii"
             ],
-            "time": "2015-06-23 13:06:14"
+            "time": "2015-06-29 09:47:23"
         },
         {
             "name": "yiisoft/yii2",
-            "version": "2.0.4",
+            "version": "2.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-framework.git",
-                "reference": "726867caee3f23aa7a6975c801e64b6021e14f86"
+                "reference": "ea8c13b9f5cd437bd7bf73cad8a3457a155f3727"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/726867caee3f23aa7a6975c801e64b6021e14f86",
-                "reference": "726867caee3f23aa7a6975c801e64b6021e14f86",
+                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/ea8c13b9f5cd437bd7bf73cad8a3457a155f3727",
+                "reference": "ea8c13b9f5cd437bd7bf73cad8a3457a155f3727",
                 "shasum": ""
             },
             "require": {
@@ -540,7 +540,7 @@
                 "framework",
                 "yii2"
             ],
-            "time": "2015-05-10 20:09:47"
+            "time": "2015-07-11 02:37:59"
         },
         {
             "name": "yiisoft/yii2-composer",

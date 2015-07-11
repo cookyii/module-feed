@@ -120,16 +120,11 @@ class ItemEditForm extends \yii\base\Model
         $Item->published_at = empty($this->published_at) ? time() : strtotime($this->published_at);
         $Item->archived_at = empty($this->archived_at) ? null : strtotime($this->archived_at);
         $Item->meta = Json::encode([
-            'meta_title' => $this->meta_title,
-            'meta_keywords' => $this->meta_keywords,
-            'meta_description' => $this->meta_description,
-            'meta_image' => $this->meta_image,
+            'title' => $this->meta_title,
+            'keywords' => $this->meta_keywords,
+            'description' => $this->meta_description,
+            'image' => $this->meta_image,
         ]);
-
-        if ($Item->isNewRecord) {
-            $Item->activated = \resources\Feed\Item::NOT_ACTIVATED;
-            $Item->deleted = \resources\Feed\Item::NOT_DELETED;
-        }
 
         $result = $Item->validate() && $Item->save();
 
@@ -151,43 +146,5 @@ class ItemEditForm extends \yii\base\Model
         $this->Item = $Item;
 
         return $result;
-    }
-
-    /**
-     * @param array|null $items
-     * @param array|null $options
-     * @param array|null $sections
-     * @param array|null $models
-     * @param integer $nested
-     * @return array
-     */
-    public function getSectionValues($items = null, $options = null, $sections = null, $models = null, $nested = 1)
-    {
-        if (empty($items)) {
-            $items = [null => 'Root section'];
-        }
-
-        if (empty($options)) {
-            $options = [];
-        }
-
-        if (empty($sections)) {
-            $tree = \resources\Feed\Section::getTree(false);
-            $sections = $tree['sections'];
-            $models = $tree['models'];
-        }
-
-        if (!empty($sections)) {
-            foreach ($sections as $section) {
-                $attributes = $models[$section['slug']];
-                $items[$attributes['id']] = sprintf('%s %s', str_repeat('....', $nested), $attributes['title']);
-                $options[(string)$attributes['id']] = ['ng-disabled' => sprintf('isSectionDisabled("%s")', $attributes['slug'])];
-                if (!empty($section['sections'])) {
-                    list($items, $options) = $this->getSectionValues($items, $options, $section['sections'], $models, $nested + 1);
-                }
-            }
-        }
-
-        return [$items, $options];
     }
 }
