@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "0f621754738ce49e2cded0338c7af4f9",
+    "hash": "21390db92bb72d16fdacaa348e7bf885",
     "packages": [
         {
             "name": "bower-asset/fontawesome",
@@ -312,12 +312,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cookyii/module-media.git",
-                "reference": "52d271a8ad39fd0cd840c0dc9de19020fa1fd5ea"
+                "reference": "9eada0bc4ecb47cd2cff3394721b09fd0ffd3f32"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cookyii/module-media/zipball/52d271a8ad39fd0cd840c0dc9de19020fa1fd5ea",
-                "reference": "52d271a8ad39fd0cd840c0dc9de19020fa1fd5ea",
+                "url": "https://api.github.com/repos/cookyii/module-media/zipball/9eada0bc4ecb47cd2cff3394721b09fd0ffd3f32",
+                "reference": "9eada0bc4ecb47cd2cff3394721b09fd0ffd3f32",
                 "shasum": ""
             },
             "require": {
@@ -358,7 +358,7 @@
                 "video",
                 "yii2"
             ],
-            "time": "2015-07-11 14:26:49"
+            "time": "2015-07-11 15:23:12"
         },
         {
             "name": "ezyang/htmlpurifier",
@@ -403,6 +403,58 @@
                 "html"
             ],
             "time": "2013-11-30 08:25:19"
+        },
+        {
+            "name": "fzaninotto/faker",
+            "version": "v1.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fzaninotto/Faker.git",
+                "reference": "d0190b156bcca848d401fb80f31f504f37141c8d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/d0190b156bcca848d401fb80f31f504f37141c8d",
+                "reference": "d0190b156bcca848d401fb80f31f504f37141c8d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0",
+                "squizlabs/php_codesniffer": "~1.5"
+            },
+            "suggest": {
+                "ext-intl": "*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.5.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Faker\\": "src/Faker/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "François Zaninotto"
+                }
+            ],
+            "description": "Faker is a PHP library that generates fake data for you.",
+            "keywords": [
+                "data",
+                "faker",
+                "fixtures"
+            ],
+            "time": "2015-05-29 06:29:14"
         },
         {
             "name": "imagine/imagine",

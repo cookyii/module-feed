@@ -33,7 +33,8 @@
     "cookyii/base": "dev-master",
     "cookyii/module-media": "dev-master",
 
-    "rmrevin/yii2-fontawesome": "~2.10"
+    "rmrevin/yii2-fontawesome": "~2.10",
+    "fzaninotto/faker": "*"
   },
   "autoload": {
     "psr-4": {
