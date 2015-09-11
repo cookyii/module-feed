@@ -2,16 +2,16 @@
 /**
  * ItemQuery.php
  * @author Revin Roman
- * @link https://rmrevin.ru
+ * @link https://rmrevin.com
  */
 
-namespace resources\Feed\queries;
+namespace cookyii\modules\Feed\resources\Feed\queries;
 
 use yii\helpers\ArrayHelper;
 
 /**
  * Class ItemQuery
- * @package resources\Feed\queries
+ * @package cookyii\modules\Feed\resources\Feed\queries
  */
 class ItemQuery extends \yii\db\ActiveQuery
 {
@@ -48,7 +48,7 @@ class ItemQuery extends \yii\db\ActiveQuery
     public function bySectionId($section_id)
     {
         /** @var array $item_sections */
-        $item_sections = \resources\Feed\ItemSection::find()
+        $item_sections = \cookyii\modules\Feed\resources\Feed\ItemSection::find()
             ->bySectionId($section_id)
             ->asArray()
             ->all();
@@ -69,7 +69,7 @@ class ItemQuery extends \yii\db\ActiveQuery
     public function bySectionSlug($section_slug)
     {
         /** @var array $sections */
-        $sections = \resources\Feed\Section::find()
+        $sections = \cookyii\modules\Feed\resources\Feed\Section::find()
             ->bySlug($section_slug)
             ->asArray()
             ->all();

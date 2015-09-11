@@ -2,7 +2,7 @@
 /**
  * EditItemAssetBundle.php
  * @author Revin Roman
- * @link https://rmrevin.ru
+ * @link https://rmrevin.com
  */
 
 namespace cookyii\modules\Feed\backend\assets;
@@ -21,7 +21,7 @@ class EditItemAssetBundle extends \yii\web\AssetBundle
     ];
 
     public $js = [
-        'factories.js',
+        'SectionDropdownScope.js',
         'SectionResource.js',
         'ItemResource.js',
         'ItemDetailController.js',

@@ -15,7 +15,7 @@ use cookyii\modules\Feed;
 class ItemController extends \yii\rest\ActiveController
 {
 
-    public $modelClass = 'resources\Feed\Item';
+    public $modelClass = 'cookyii\modules\Feed\resources\Feed\Item';
 
     /**
      * @inheritdoc
@@ -91,7 +91,7 @@ class ItemController extends \yii\rest\ActiveController
         /* @var $modelClass \yii\db\BaseActiveRecord */
         $modelClass = $action->modelClass;
 
-        /** @var \resources\Feed\queries\ItemQuery $Query */
+        /** @var \cookyii\modules\Feed\resources\Feed\queries\ItemQuery $Query */
         $Query = $modelClass::find();
 
         $section = str_clean(Request()->get('section'));
