@@ -35,8 +35,12 @@ class EditController extends Feed\backend\components\Controller
      */
     public function actionIndex()
     {
-        $SectionEditForm = new Feed\backend\forms\SectionEditForm([
-            'Section' => new \cookyii\modules\Feed\resources\Feed\Section(),
+        /** @var \cookyii\modules\Feed\resources\Feed\Section $SectionModel */
+        $SectionModel = \Yii::createObject(\cookyii\modules\Feed\resources\Feed\Section::className());
+
+        $SectionEditForm = \Yii::createObject([
+            'class' => Feed\backend\forms\SectionEditForm::className(),
+            'Section' => $SectionModel,
         ]);
 
         return $this->render('index', [
