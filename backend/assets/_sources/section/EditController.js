@@ -2,8 +2,8 @@
 
 angular.module('BackendApp')
 
-  .controller('SectionEditController', [
-    '$scope', '$http', '$timeout', 'QueryScope', 'TabScope', 'ToastrScope', 'SectionDropdownScope',
+  .controller('feed.section.EditController', [
+    '$scope', '$http', '$timeout', 'QueryScope', 'TabScope', 'ToastrScope', 'feed.SectionDropdownScope',
     function ($scope, $http, $timeout, QueryScope, TabScope, ToastrScope, SectionDropdownScope) {
 
       var query = QueryScope($scope),

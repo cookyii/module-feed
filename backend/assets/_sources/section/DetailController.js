@@ -2,8 +2,8 @@
 
 angular.module('BackendApp')
 
-  .controller('SectionDetailController', [
-    '$scope', '$timeout', 'QueryScope', 'SectionResource',
+  .controller('feed.section.DetailController', [
+    '$scope', '$timeout', 'QueryScope', 'feed.SectionResource',
     function ($scope, $timeout, QueryScope, Section) {
 
       var query = QueryScope($scope),

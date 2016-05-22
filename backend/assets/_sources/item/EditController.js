@@ -7,8 +7,8 @@ angular.module('BackendApp')
     redactorOptions.imageUpload = '/feed/item/rest/upload/image';
   })
 
-  .controller('ItemEditController', [
-    '$scope', '$http', '$timeout', 'QueryScope', 'TabScope', 'ToastrScope', 'uiUploader', 'SectionDropdownScope',
+  .controller('feed.item.EditController', [
+    '$scope', '$http', '$timeout', 'QueryScope', 'TabScope', 'ToastrScope', 'uiUploader', 'feed.SectionDropdownScope',
     function ($scope, $http, $timeout, QueryScope, TabScope, ToastrScope, uiUploader, SectionDropdownScope) {
 
       var query = QueryScope($scope),
