@@ -1,20 +1,20 @@
 <?php
 /**
- * FeedItemSectionQuery.php
+ * Query.php
  * @author Revin Roman
  * @link https://rmrevin.com
  */
 
-namespace cookyii\modules\Feed\resources\queries;
+namespace cookyii\modules\Feed\resources\FeedItemSection;
 
 /**
- * Class FeedItemSectionQuery
- * @package cookyii\modules\Feed\resources\queries
+ * Class Query
+ * @package cookyii\modules\Feed\resources\FeedItemSection
  *
- * @method \cookyii\modules\Feed\resources\FeedItemSection|array|null one($db = null)
- * @method \cookyii\modules\Feed\resources\FeedItemSection[]|array all($db = null)
+ * @method Model|array|null one($db = null)
+ * @method Model[]|array all($db = null)
  */
-class FeedItemSectionQuery extends \yii\db\ActiveQuery
+class Query extends \yii\db\ActiveQuery
 {
 
     /**

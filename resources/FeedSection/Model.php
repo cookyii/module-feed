@@ -1,19 +1,22 @@
 <?php
 /**
- * FeedSection.php
+ * Model.php
  * @author Revin Roman
  * @link https://rmrevin.com
  */
 
-namespace cookyii\modules\Feed\resources;
+namespace cookyii\modules\Feed\resources\FeedSection;
 
 use cookyii\helpers\ApiAttribute;
+use cookyii\modules\Feed\resources\FeedItem\Model as FeedItemModel;
+use cookyii\modules\Feed\resources\FeedItemSection\Model as FeedItemSectionModel;
+use cookyii\modules\Feed\resources\FeedSection\Model as FeedSectionModel;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Json;
 
 /**
- * Class FeedSection
- * @package cookyii\modules\Feed\resources
+ * Class Model
+ * @package cookyii\modules\Feed\resources\FeedSection
  *
  * @property integer $id
  * @property integer $parent_id
@@ -30,16 +33,18 @@ use yii\helpers\Json;
  * @property integer $deleted_at
  * @property integer $activated_at
  *
- * @property \cookyii\modules\Feed\resources\FeedSection[] $parents
- * @property \cookyii\modules\Feed\resources\FeedSection[] $children
- * @property \cookyii\modules\Feed\resources\FeedItemSection[] $sectionItems
- * @property \cookyii\modules\Feed\resources\FeedItem[] $items
+ * @property FeedSectionModel[] $parents
+ * @property FeedSectionModel[] $children
+ * @property FeedItemSectionModel[] $sectionItems
+ * @property FeedItemModel[] $items
  */
-class FeedSection extends \cookyii\db\ActiveRecord
+class Model extends \cookyii\db\ActiveRecord
 {
 
     use \cookyii\db\traits\ActivationTrait,
         \cookyii\db\traits\SoftDeleteTrait;
+
+    static $tableName = '{{%feed_section}}';
 
     /**
      * @inheritdoc
@@ -82,7 +87,7 @@ class FeedSection extends \cookyii\db\ActiveRecord
     {
         $fields = parent::extraFields();
 
-        $fields['meta'] = function (FeedSection $Model) {
+        $fields['meta'] = function (self $Model) {
             return $Model->meta();
         };
 
@@ -161,11 +166,11 @@ class FeedSection extends \cookyii\db\ActiveRecord
             'models' => [],
         ];
 
-        /** @var FeedSection $SectionModel */
-        $SectionModel = \Yii::createObject(FeedSection::className());
+        /** @var FeedSectionModel $SectionModel */
+        $SectionModel = \Yii::createObject(FeedSectionModel::className());
 
         if (empty($Sections) && empty($parent)) {
-            /** @var queries\FeedSectionQuery $SectionsQuery */
+            /** @var \cookyii\modules\Feed\resources\FeedSection\Query $SectionsQuery */
             $SectionsQuery = $SectionModel::find();
 
             if ($with_deleted === false) {
@@ -220,69 +225,70 @@ class FeedSection extends \cookyii\db\ActiveRecord
     }
 
     /**
-     * @return \cookyii\modules\Feed\resources\queries\FeedSectionQuery
+     * @return \cookyii\modules\Feed\resources\FeedSection\Query
      */
     public function getParents()
     {
-        /** @var FeedSection $SectionModel */
-        $SectionModel = \Yii::createObject(FeedSection::className());
+        /** @var FeedSectionModel $FeedSectionModel */
+        $FeedSectionModel = \Yii::createObject(FeedSectionModel::className());
 
-        return $this->hasMany($SectionModel::className(), ['id' => 'parent_id'])
+        /** @var \cookyii\modules\Feed\resources\FeedSection\Query $Query */
+        $Query = $this->hasMany($FeedSectionModel::className(), ['id' => 'parent_id']);
+
+        return $Query
             ->inverseOf('section');
     }
 
     /**
-     * @return \cookyii\modules\Feed\resources\queries\FeedSectionQuery
+     * @return \cookyii\modules\Feed\resources\FeedSection\Query
      */
     public function getChildren()
     {
-        /** @var FeedSection $SectionModel */
-        $SectionModel = \Yii::createObject(FeedSection::className());
+        /** @var FeedSectionModel $FeedSectionModel */
+        $FeedSectionModel = \Yii::createObject(FeedSectionModel::className());
 
-        return $this->hasMany($SectionModel::className(), ['parent_id' => 'id'])
+        /** @var \cookyii\modules\Feed\resources\FeedSection\Query $Query */
+        $Query = $this->hasMany($FeedSectionModel::className(), ['parent_id' => 'id']);
+
+        return $Query
             ->inverseOf('section');
     }
 
     /**
-     * @return \cookyii\modules\Feed\resources\queries\FeedItemSectionQuery
+     * @return \cookyii\modules\Feed\resources\FeedItemSection\Query
      */
     public function getSectionItems()
     {
-        /** @var FeedItemSection $ItemSectionModel */
-        $ItemSectionModel = \Yii::createObject(FeedItemSection::className());
+        /** @var FeedItemSectionModel $FeedItemSectionModel */
+        $FeedItemSectionModel = \Yii::createObject(FeedItemSectionModel::className());
 
-        return $this->hasMany($ItemSectionModel::className(), ['section_id' => 'id'])
+        /** @var \cookyii\modules\Feed\resources\FeedItemSection\Query $Query */
+        $Query = $this->hasMany($FeedItemSectionModel::className(), ['section_id' => 'id']);
+
+        return $Query
             ->inverseOf('section');
     }
 
     /**
-     * @return \cookyii\modules\Feed\resources\queries\FeedItemQuery
+     * @return \cookyii\modules\Feed\resources\FeedItem\Query
      */
     public function getItems()
     {
-        /** @var FeedItem $ItemModel */
-        $ItemModel = \Yii::createObject(FeedItem::className());
+        /** @var FeedItemModel $FeedItemModel */
+        $FeedItemModel = \Yii::createObject(FeedItemModel::className());
 
-        return $this->hasMany($ItemModel::className(), ['id' => 'item_id'])
+        /** @var \cookyii\modules\Feed\resources\FeedItem\Query $Query */
+        $Query = $this->hasMany($FeedItemModel::className(), ['id' => 'item_id']);
+
+        return $Query
             ->via('sectionItems');
     }
 
     /**
-     * @return \cookyii\modules\Feed\resources\queries\FeedSectionQuery
+     * @return Query
      */
     public static function find()
     {
-        return \Yii::createObject(
-            \cookyii\modules\Feed\resources\queries\FeedSectionQuery::className(),
-            [get_called_class()]
-        );
-    }
-
-    /**
-     * @return string
-     */
-    public static function tableName()
-    {
-        return '{{%feed_section}}';
+        return \Yii::createObject(Query::class, [get_called_class()]);
     }
 }

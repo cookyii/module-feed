@@ -1,22 +1,24 @@
 <?php
 /**
- * FeedItemQuery.php
+ * Query.php
  * @author Revin Roman
  * @link https://rmrevin.com
  */
 
-namespace cookyii\modules\Feed\resources\queries;
+namespace cookyii\modules\Feed\resources\FeedItem;
 
+use cookyii\modules\Feed\resources\FeedItemSection\Model as FeedItemSectionModel;
+use cookyii\modules\Feed\resources\FeedSection\Model as FeedSectionModel;
 use yii\helpers\ArrayHelper;
 
 /**
- * Class FeedItemQuery
- * @package cookyii\modules\Feed\resources\queries
+ * Class Query
+ * @package cookyii\modules\Feed\resources\FeedItem
  *
- * @method \cookyii\modules\Feed\resources\FeedItem|array|null one($db = null)
- * @method \cookyii\modules\Feed\resources\FeedItem[]|array all($db = null)
+ * @method Model|array|null one($db = null)
+ * @method Model[]|array all($db = null)
  */
-class FeedItemQuery extends \yii\db\ActiveQuery
+class Query extends \yii\db\ActiveQuery
 {
 
     use \cookyii\db\traits\query\ActivatedQueryTrait,
@@ -50,8 +52,8 @@ class FeedItemQuery extends \yii\db\ActiveQuery
      */
     public function bySectionId($section_id)
     {
-        /** @var \cookyii\modules\Feed\resources\FeedItemSection $ItemSectionModel */
-        $ItemSectionModel = \Yii::createObject(\cookyii\modules\Feed\resources\FeedItemSection::className());
+        /** @var FeedItemSectionModel $ItemSectionModel */
+        $ItemSectionModel = \Yii::createObject(FeedItemSectionModel::className());
 
         /** @var array $item_sections */
         $item_sections = $ItemSectionModel::find()
@@ -74,11 +76,11 @@ class FeedItemQuery extends \yii\db\ActiveQuery
      */
     public function bySectionSlug($section_slug)
     {
-        /** @var \cookyii\modules\Feed\resources\FeedSection $SectionModel */
-        $SectionModel = \Yii::createObject(\cookyii\modules\Feed\resources\FeedSection::className());
+        /** @var FeedSectionModel $FeedSectionModel */
+        $FeedSectionModel = \Yii::createObject(FeedSectionModel::className());
 
         /** @var array $sections */
-        $sections = $SectionModel::find()
+        $sections = $FeedSectionModel::find()
             ->bySlug($section_slug)
             ->asArray()
             ->all();
